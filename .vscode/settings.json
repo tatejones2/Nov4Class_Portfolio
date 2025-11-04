@@ -1,0 +1,34 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "files.associations": {
+    "*.njk": "nunjucks",
+    "*.html": "html"
+  },
+  "emmet.includeLanguages": {
+    "nunjucks": "html"
+  },
+  "files.exclude": {
+    "node_modules": true,
+    "_site": true
+  },
+  "search.exclude": {
+    "node_modules": true,
+    "_site": true,
+    "package-lock.json": true
+  },
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    }
+  },
+  "[nunjucks]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

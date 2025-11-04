@@ -1,0 +1,32 @@
+---
+layout: base.njk
+title: Projects
+---
+
+<div class="container">
+  <header class="page-header">
+    <h1>Projects</h1>
+    <p>A showcase of my work and side projects</p>
+  </header>
+
+  <div class="projects-grid">
+    {% for project in collections.projects %}
+    <article class="project-card">
+      <h2><a href="{{ project.url }}">{{ project.data.title }}</a></h2>
+      <p>{{ project.data.description }}</p>
+      {% if project.data.tags %}
+      <div class="project-tags">
+        {% for tag in project.data.tags %}
+          {% if tag != "projects" %}
+          <span class="tag">{{ tag }}</span>
+          {% endif %}
+        {% endfor %}
+      </div>
+      {% endif %}
+      <div class="project-links">
+        <a href="{{ project.url }}" class="btn btn-small">Learn More →</a>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</div>

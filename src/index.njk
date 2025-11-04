@@ -1,0 +1,53 @@
+---
+layout: base.njk
+title: Home
+---
+
+<section class="hero">
+  <div class="container">
+    <h1 class="hero-title">Welcome to My Portfolio</h1>
+    <p class="hero-subtitle">Software Engineer | Web Developer | Problem Solver</p>
+    <div class="hero-cta">
+      <a href="/projects/" class="btn btn-primary">View Projects</a>
+      <a href="/blog/" class="btn btn-secondary">Read Blog</a>
+    </div>
+  </div>
+</section>
+
+<section class="featured-projects">
+  <div class="container">
+    <h2>Featured Projects</h2>
+    <div class="projects-grid">
+      {% for project in collections.projects | reverse | limit(3) %}
+      <article class="project-card">
+        <h3><a href="{{ project.url }}">{{ project.data.title }}</a></h3>
+        <p>{{ project.data.description }}</p>
+        <div class="project-tags">
+          {% for tag in project.data.tags %}
+            {% if tag != "projects" %}
+            <span class="tag">{{ tag }}</span>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+    <a href="/projects/" class="view-all">View All Projects →</a>
+  </div>
+</section>
+
+<section class="recent-posts">
+  <div class="container">
+    <h2>Recent Blog Posts</h2>
+    <div class="posts-list">
+      {% for post in collections.posts | reverse | limit(3) %}
+      <article class="post-preview">
+        <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+        <time datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time>
+        <p>{{ post.templateContent | excerpt }}</p>
+      </article>
+      {% endfor %}
+    </div>
+    <a href="/blog/" class="view-all">View All Posts →</a>
+  </div>
+</section>

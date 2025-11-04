@@ -1,0 +1,37 @@
+---
+layout: base.njk
+---
+
+<article class="project">
+  <header class="project-header">
+    <h1 class="project-title">{{ title }}</h1>
+    {% if tags %}
+    <div class="project-tags">
+      {% for tag in tags %}
+        {% if tag != "projects" %}
+        <span class="tag">{{ tag }}</span>
+        {% endif %}
+      {% endfor %}
+    </div>
+    {% endif %}
+  </header>
+  
+  {% if projectUrl or githubUrl %}
+  <div class="project-links">
+    {% if projectUrl %}
+    <a href="{{ projectUrl }}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">View Project</a>
+    {% endif %}
+    {% if githubUrl %}
+    <a href="{{ githubUrl }}" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+    {% endif %}
+  </div>
+  {% endif %}
+  
+  <div class="project-content">
+    {{ content | safe }}
+  </div>
+</article>
+
+<nav class="project-navigation">
+  <a href="/projects/" class="btn-back">← Back to Projects</a>
+</nav>
