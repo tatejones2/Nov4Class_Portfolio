@@ -61,5 +61,6 @@ module.exports = function (eleventyConfig) {
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
     dataTemplateEngine: "njk",
+    pathPrefix: "/Nov4Class_Portfolio/",
   };
 };
